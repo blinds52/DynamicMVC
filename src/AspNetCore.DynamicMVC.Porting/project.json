@@ -1,0 +1,59 @@
+﻿{
+  "description": "DynamicMVC Porting",
+  "copyright": "(C) AGSP Software, 2017",
+  "title": "Porting",
+  "version": "1.0.0-*",
+
+  "packOptions": {
+    "tags": [
+      "mvc"
+    ]
+  },
+
+  "buildOptions": {
+    "xmlDoc": false,
+    "debugType": "portable",
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "Microsoft.AspNetCore": "1.1.0",
+    "Microsoft.Extensions.DependencyInjection": "1.1.0"
+
+  },
+
+  "frameworks": {
+    "net451": {
+    },
+    "netstandard1.6": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.1"
+      },
+      "imports": [
+        "dnxcore50",
+        "dotnet5.6",
+        "portable-net45+win8",
+        "net45",
+        "portable-win81+wpa81"
+      ]
+    },
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": "1.1.0"
+      },
+      "imports": [
+        "dnxcore50",
+        "dotnet5.6",
+        "portable-net45+win8",
+        "net45",
+        "portable-win81+wpa81"
+      ]
+    }
+
+  },
+
+  "tooling": {
+    "defaultNamespace": "Microsoft.Practices.Unity"
+  }
+
+}
