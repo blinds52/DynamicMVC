@@ -7,9 +7,7 @@ namespace ReflectionLibrary.Interfaces
     public interface IReflectedProperty : IReflectedObjectWithAttributes
     {
         IReflectedPropertyOperations ReflectedPropertyOperations { get; set; }
-        string Name { get; set; }
         IReflectedClass ReflectedClass { get; set; }
-        ICollection<Attribute> Attributes { get; set; }
         string PropertyTypeName { get; set; }
 
         bool IsSimple { get; set; }

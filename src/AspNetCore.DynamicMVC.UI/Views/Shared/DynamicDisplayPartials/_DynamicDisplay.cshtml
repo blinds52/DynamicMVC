@@ -1,0 +1,6 @@
+@using AspNetCore.DynamicMVC.UI.DynamicMVC.ViewModels.DynamicPropertyViewModels
+@{
+    var dynamicPropertyViewModel = (DynamicPropertyIndexViewModel)ViewData["DynamicPropertyViewModel"];
+}
+
+@Html.Display(dynamicPropertyViewModel.PropertyName)

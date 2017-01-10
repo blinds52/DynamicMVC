@@ -49,7 +49,8 @@ namespace ReflectionLibrary.Models
         /// <returns>String.Format("{0} - {1} Attributes, {2} Methods, {3} Properties", Name, Attributes.Count, ReflectedMethods.Count, ReflectedProperties.Count)</returns>
         public override string ToString()
         {
-            return String.Format("{0} - {1} Attributes, {2} Methods, {3} Properties", Name, Attributes.Count, ReflectedMethods.Count, ReflectedProperties.Count);
+            return
+                $"{Name} - {Attributes.Count} Attributes, {ReflectedMethods.Count} Methods, {ReflectedProperties.Count} Properties";
         }
 
         /// <summary>

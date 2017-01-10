@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCore.DynamicMVC.UI.DynamicMVC;
+using DynamicMVC.Data;
+using DynamicMVC.DynamicEntityMetadataLibrary;
 using DynamicMVC.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,8 +37,11 @@ namespace AspNetCore.DynamicMVC.UI
             services.AddModules(options =>
             {
                 options
+                    .AddModule<DataModule>()
                     .AddModule<ReflectionModule>()
-                    .AddModule<SharedModule>();
+                    .AddModule<DynamicEntityMetadataModule>()
+                    .AddModule<SharedModule>()
+                    .AddModule<DynamicMVCModule>();
             });
 
             // Add framework services.

@@ -84,5 +84,14 @@ namespace Microsoft.Practices.Unity
             container.ToServiceCollection().Add(new ServiceDescriptor(typeof(TInterfaceType), typeof(TConcreteType)));
             return container;
         }
+
+        public static IUnityContainer RegisterType<TInterfaceType, TConcreteType>(this IUnityContainer container, Func<IServiceProvider, TConcreteType> factory)
+            where TInterfaceType : class 
+            where TConcreteType  : class ,TInterfaceType
+        {
+            if (container == null) throw new ArgumentNullException(nameof(container));
+            container.ToServiceCollection().Add(ServiceDescriptor.Scoped<TInterfaceType, TConcreteType>(factory));
+            return container;
+        }
     }
 }

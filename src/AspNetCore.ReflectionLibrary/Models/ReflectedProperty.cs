@@ -34,7 +34,7 @@ namespace ReflectionLibrary.Models
 
         public override string ToString()
         {
-            return String.Format("{0}({1}) - {2} Attributes", Name, PropertyTypeName, Attributes.Count);
+            return $"{Name}({PropertyTypeName}) - {Attributes.Count} Attributes";
         }
     }
 }

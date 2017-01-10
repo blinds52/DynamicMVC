@@ -1,0 +1,19 @@
+@using AspNetCore.DynamicMVC.UI.DynamicMVC.ViewModels.DynamicPropertyViewModels
+@using DynamicMVC.UI.DynamicMVC.Helpers
+
+@model object
+
+@{
+    var dynamicPropertyEditorViewModel = (DynamicPropertyEditorViewModel)ViewData["DynamicPropertyEditorViewModel"];
+    var dynamicEditorDropDownViewModel = dynamicPropertyEditorViewModel.DynamicEditorDropDownViewModel;
+}
+
+<div class="form-group">
+    @Html.DynamicLabelFor(m => m, dynamicPropertyEditorViewModel)
+    <div class="">
+        @Html.DropDownListFor(m => m, dynamicEditorDropDownViewModel.SelectListItems, new { @class = "form-control" })
+    </div>
+</div>
+
+
+

@@ -77,10 +77,8 @@ namespace DynamicMVC.UI.DynamicMVC.Managers
 
         public string PagingMessage(RouteValueDictionaryWrapper routeValueDictionaryWrapper)
         {
-            return string.Format("Showing {0} - {1} of {2}"
-                , RecordStart(routeValueDictionaryWrapper).ToString(CultureInfo.InvariantCulture)
-                , RecordEnd(routeValueDictionaryWrapper).ToString(CultureInfo.InvariantCulture)
-                , RecordCount.ToString(CultureInfo.InvariantCulture));
+            return
+                $"Showing {RecordStart(routeValueDictionaryWrapper).ToString(CultureInfo.InvariantCulture)} - {RecordEnd(routeValueDictionaryWrapper).ToString(CultureInfo.InvariantCulture)} of {RecordCount.ToString(CultureInfo.InvariantCulture)}";
         }
     }
 }

@@ -17,13 +17,12 @@
     "Microsoft.AspNetCore.Mvc": "1.1.0",
     "Microsoft.AspNetCore.StaticFiles": "1.1.0",
     "Microsoft.Extensions.Logging.Debug": "1.1.0",
-    "Microsoft.NETCore.App": {
-      "version": "1.1.0",
-      "type": "platform"
-    },
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
     "AspNetCore.DynamicMVC.Porting": "1.0.0-*",
-    "AspNetCore.DynamicMVC.Shared": "1.0.0-*"
+    "AspNetCore.DynamicMVC.Shared": "1.0.0-*",
+    "AspNetCore.DynamicMVC.Data": "1.0.0-*",
+    "AspNetCore.DynamicMVC.Annotations": "1.0.0-*",
+    "AspNetCore.DynamicMVC.DynamicEntityMetadataLibrary": "1.0.0-*"
   },
 
   "tools": {
@@ -33,39 +32,31 @@
   },
 
   "frameworks": {
-    "netcoreapp1.1": {
-      "imports": [
-        "dnxcore50",
-        "dotnet5.6",
-        "portable-net45+win8",
-        "net45",
-        "portable-win81+wpa81"
+    "net451": {}
+    },
+
+    "buildOptions": {
+      "emitEntryPoint": true,
+      "preserveCompilationContext": true
+    },
+
+    "runtimeOptions": {
+      "configProperties": {
+        "System.GC.Server": true
+      }
+    },
+
+    "publishOptions": {
+      "include": [
+        "wwwroot",
+        "**/*.cshtml",
+        "appsettings.json",
+        "web.config"
       ]
+    },
+
+    "scripts": {
+      "prepublish": [ "bower install", "dotnet bundle" ],
+      "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
     }
-  },
-
-  "buildOptions": {
-    "emitEntryPoint": true,
-    "preserveCompilationContext": true
-  },
-
-  "runtimeOptions": {
-    "configProperties": {
-      "System.GC.Server": true
-    }
-  },
-
-  "publishOptions": {
-    "include": [
-      "wwwroot",
-      "**/*.cshtml",
-      "appsettings.json",
-      "web.config"
-    ]
-  },
-
-  "scripts": {
-    "prepublish": [ "bower install", "dotnet bundle" ],
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
-}
